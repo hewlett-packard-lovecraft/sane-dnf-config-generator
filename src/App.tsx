@@ -5,7 +5,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import "./App.css";
 import Main from "./Components/Main"
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Container className="App">
       <Jumbotron fluid>

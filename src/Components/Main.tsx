@@ -1,35 +1,91 @@
-import React, { FC } from "react";
-import Container from "react-bootstrap/Container";
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 import ConfigurationPane from "./ConfigurationPane";
 import OutputPane from "./OutputPane";
 
-const Main: React.FC = () => {
-  const outputPlaceholder: string = 
-`[main] 
-gpgcheck=1 \n
-installonly_limit=3 \n
-clean_requirements_on_remove=True \n
-best=True \n
-skip_if_unavailable=True \n
-max_parallel_downloads=10 \n
-deltarpm=1 \n
-fastestmirror=true \n
-`;
-  return (
-    <Container className="Main">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-lg-6">
-            <ConfigurationPane />
-          </div>
-          <div className="col-lg-6">
-            <OutputPane output={ outputPlaceholder }/>
-          </div>
-        </div>
-      </div>
-    </Container>
-  );
+import IState from "../Types/IState";
+
+interface IProps {}
+
+class Main extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      options: [
+        // remember to rewrite this to use a map
+        {
+          name: "gpgcheck",
+          enabled: true,
+          value: true,
+        },
+
+        {
+          name: "clean_requirements_on_remove",
+          enabled: true,
+          value: true,
+        },
+
+        {
+          name: "best",
+          enabled: true,
+          value: true,
+        },
+
+        {
+          name: "skip_if_unavailable",
+          enabled: true,
+          value: true,
+        },
+
+        {
+          name: "fastestmirror",
+          enabled: true,
+          value: true,
+        },
+
+        {
+          name: "deltarpm",
+          enabled: true,
+          value: true,
+        },
+
+        {
+          name: "deltarpm_percentage",
+          enabled: true,
+          value: 75,
+        },
+
+        {
+          name: "installonly_limit",
+          enabled: true,
+          value: 3,
+        },
+
+        {
+          name: "max_parallel_downloads",
+          enabled: true,
+          value: 10,
+        },
+      ],
+    };
+  }
+
+  render() {
+    return (
+      <Container fluid>
+        <Row xs="12">
+          <Col className="configuration-pane" xl="6">
+            <ConfigurationPane options={this.state.options} />
+          </Col>
+
+          <Col xl="6">
+            <OutputPane options={this.state.options} />
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
 }
 
 export default Main;

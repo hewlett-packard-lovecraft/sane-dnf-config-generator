@@ -1,18 +1,16 @@
 import React from "react";
-import CopyToClipboardButton from "./CopyToClipboardButton";
+import IProps from "../Types/IProps";
+import OutputTable from "./OutputTable";
 
-const OutputPane: React.FC<Props> = (props: Props) => {
-  return (
-    <div className="output-pane">
-      { props.output }
-      <div className="right">
-        <CopyToClipboardButton output={ props.output }/>
+class OutputPane extends React.Component<IProps> {
+  render() {
+    return (
+      <div className="output-pane">
+          <h5>Generated dnf.conf</h5>
+          <OutputTable options={this.props.options} />
       </div>
-    </div>
-  );
-};
-
-interface Props {
-  output: string;
+    );
+  }
 }
+
 export default OutputPane;
