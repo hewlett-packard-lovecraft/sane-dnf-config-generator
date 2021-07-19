@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-
 import ConfigurationPane from "./ConfigurationPane";
 import OutputPane from "./OutputPane";
 
 import IState from "../Types/IState";
+import Option from "../Types/IOption";
 
 interface IProps {}
 
@@ -13,7 +13,6 @@ class Main extends React.Component<IProps, IState> {
     super(props);
     this.state = {
       options: [
-        // remember to rewrite this to use a map
         {
           name: "gpgcheck",
           enabled: true,
@@ -41,7 +40,7 @@ class Main extends React.Component<IProps, IState> {
         {
           name: "fastestmirror",
           enabled: true,
-          value: true,
+          value: false,
         },
 
         {
@@ -69,6 +68,31 @@ class Main extends React.Component<IProps, IState> {
         },
       ],
     };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+  }
+
+  handleInputChange(index: number, value: number) {
+    if (isNaN((value)) && value <= 100 && value >= 0) {
+      let currentOptions: Option[] = this.state.options.slice();
+      currentOptions[index].value = value;
+      this.setState(() => {
+        return { options: currentOptions };
+      });
+
+    console.log(`the value of ${currentOptions[index].name} is now ${currentOptions[index].value}`);
+    }
+  }
+
+  handleCheckboxChange(index: number) {
+    let currentOptions: Option[] = this.state.options.slice();
+    currentOptions[index].value = !currentOptions[index].value;
+    this.setState(() => {
+      return { options: currentOptions };
+    });
+
+    console.log(`the value of ${currentOptions[index].name} is now ${currentOptions[index].value}`);
   }
 
   render() {
@@ -76,7 +100,11 @@ class Main extends React.Component<IProps, IState> {
       <Container fluid>
         <Row xs="12">
           <Col className="configuration-pane" xl="6">
-            <ConfigurationPane options={this.state.options} />
+            <ConfigurationPane
+              options={this.state.options}
+              handleCheckboxChange={this.handleCheckboxChange}
+              handleInputChange={this.handleInputChange}
+            />
           </Col>
 
           <Col xl="6">

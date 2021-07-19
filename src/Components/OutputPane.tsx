@@ -8,6 +8,8 @@ class OutputPane extends React.Component<IProps> {
       <div className="output-pane">
           <h5>Generated dnf.conf</h5>
           <OutputTable options={this.props.options} />
+        <br/>
+        <p>Copy the above text into <code>/etc/dnf.conf</code> </p>
       </div>
     );
   }
