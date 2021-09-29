@@ -1,5 +1,5 @@
 # About
-This is a single page react app that generates a dnf.conf with reasonable defaults. This project was heavily, heavily inspired by [vimconfig.com](https://vimconfig.com/).
+a single page react app that generates a dnf.conf with reasonable defaults. This project was inspired by [vimconfig.com](https://vimconfig.com/).
 
 # Setup
 
