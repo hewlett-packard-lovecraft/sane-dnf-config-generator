@@ -4,3 +4,9 @@ services:
     build: .
     ports:
       - "3000:3000"
+networks:
+  reverse-proxy:
+    external:
+      name: reverse-proxy
+  back:
+    driver: bridge
