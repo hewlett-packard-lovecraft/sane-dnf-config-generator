@@ -1,9 +1,17 @@
 version: "3.9"
 services:
   web:
-    build: .
+    restart: always
     ports:
       - "3000:3000"
+    networks: 
+      - reverse-proxy
+      - back
+    environment: 
+      - VIRTUAL_PORT=3000
+      - VIRTUAL_HOST=dnfconfig.haomingxia.xyz
+      - LETSENCRYPT_HOST=dnfconfig.haomingxia.xyz
+      - LETSENCRYPT_EMAIL=mrmist3r311@gmail.com
 networks:
   reverse-proxy:
     external:
