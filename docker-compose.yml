@@ -19,3 +19,5 @@ networks:
       name: reverse-proxy
   back:
     driver: bridge
+  host:
+    driver: host
