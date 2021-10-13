@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  web:
+  sanednf:
     build: .
     restart: always
     ports:
@@ -8,11 +8,6 @@ services:
     networks: 
       - reverse-proxy
       - back
-    environment: 
-      - VIRTUAL_PORT=3000
-      - VIRTUAL_HOST=dnfconfig.haomingxia.xyz
-      - LETSENCRYPT_HOST=dnfconfig.haomingxia.xyz
-      - LETSENCRYPT_EMAIL=mrmist3r311@gmail.com
 networks:
   reverse-proxy:
     external:
