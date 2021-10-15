@@ -6,12 +6,12 @@ services:
     ports:
       - "3000:3000"
     networks: 
-      - network-proxy
+      - reverse-proxy
       - back
 networks:
-  network-proxy:
+  reverse-proxy:
     external:
-      name: network-proxy
+      name: reverse-proxy
   back:
     driver: bridge
   host:
