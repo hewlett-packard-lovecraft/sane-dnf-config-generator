@@ -8,6 +8,11 @@ services:
     networks: 
       - reverse-proxy
       - back
+    environment:
+    - VIRTUAL_PORT=3000
+    - VIRTUAL_HOST=sanednf.haomingxia.xyz
+    - LETSENCRYPT_HOST=sanednf.haomingxia.xyz
+    - LETSENCRYPT_EMAIL=contact@haomingxia.xyz
 networks:
   reverse-proxy:
     external:
