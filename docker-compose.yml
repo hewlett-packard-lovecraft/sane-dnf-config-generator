@@ -5,19 +5,9 @@ services:
     restart: always
     ports:
       - "3000:3000"
-    networks: 
+    networks:
       - reverse-proxy
       - back
-    environment:
-    - VIRTUAL_PORT=3000
-    - VIRTUAL_HOST=sanednf.haomingxia.xyz
-    - LETSENCRYPT_HOST=sanednf.haomingxia.xyz
-    - LETSENCRYPT_EMAIL=contact@haomingxia.xyz
 networks:
-  reverse-proxy:
     external:
-      name: reverse-proxy
-  back:
-    driver: bridge
-  host:
-    driver: host
+      name: bridge
