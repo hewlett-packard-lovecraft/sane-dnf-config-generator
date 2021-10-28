@@ -6,8 +6,7 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - reverse-proxy
-      - back
+      - bridge
 networks:
     external:
       name: bridge
