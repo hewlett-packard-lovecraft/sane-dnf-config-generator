@@ -21,7 +21,16 @@ class ConfigurationForm extends React.Component<IProps> {
       />
     ));
 
-    return <Form>{options}</Form>;
+    return (
+      <>
+        Documentation:{" "}
+        <a href="https://dnf.readthedocs.io/en/latest/">
+          dnf configuration reference
+        </a>{" "}
+        <br />
+        <Form>{options}</Form>
+      </>
+    );
   }
 }
 
