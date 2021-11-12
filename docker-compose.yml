@@ -2,6 +2,12 @@ version: "3.9"
 services:
   sanednf:
     build: .
-    restart: always
-    ports:
-      - "3000:3000"
+    image: 'hewlett/sane-dnf-config-generator:latest'
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: npm-network
+
+
