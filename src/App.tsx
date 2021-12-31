@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Jumbotron from "react-bootstrap/Jumbotron";
 
 import "./App.css";
 import Main from "./Components/Main"
@@ -8,13 +7,11 @@ import Main from "./Components/Main"
 const App = () => {
   return (
     <Container className="App">
-      <Jumbotron fluid>
-        <div className="center">
-          <h1 className="header"> Sane dnf.conf Generator</h1>
+        <div className="mt-4 p-5 bg-light text-dark rounded">
+          <h1> Sane dnf.conf Generator</h1>
           <p>Generate a dnf.conf with reasonable defaults</p>
         </div>
-      </Jumbotron>
-
+        <br/>
       <Main />
     </Container>
   );

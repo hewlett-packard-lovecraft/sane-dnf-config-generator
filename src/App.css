@@ -6,9 +6,6 @@
   padding: 0.5em 0.75em;
 }
 
-.output-pane {
-}
-
 .output-table {
   padding: 0.5em 0.75em;
   background-color: #e9ecef;
@@ -21,6 +18,15 @@
 .right {
   text-align: right;
 }
+
 .tmid {
   margin: 0px auto;
+}
+
+.jumbotron {
+  width: 100%;
+  padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem);
+  margin-right: auto;
+  margin-left: auto;
 }

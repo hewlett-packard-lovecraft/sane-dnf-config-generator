@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Col } from "react-bootstrap";
+import { Form, Col, Row } from "react-bootstrap";
     
 import Option from "../Types/IOption";
 
@@ -26,7 +26,7 @@ const ConfigurationOption = (props: IProps) => {
     } else if (typeof props.option.value === "number") {
       return (
         <div key={`configuration-${props.option.name}`}>
-          <Form.Row>
+          <Row>
             <Col xs="10">
               <Form.Label>{props.option.description}</Form.Label>
             </Col>
@@ -38,7 +38,7 @@ const ConfigurationOption = (props: IProps) => {
                 onChange={ (e: React.ChangeEvent<HTMLInputElement>) => props.handleInputChange(props.index, parseInt(e.target.value)) }
               />
             </Col>
-          </Form.Row>
+          </Row>
         </div>
       );
     } else {
