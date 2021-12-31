@@ -1,6 +1,8 @@
 # About
 a single page react app that generates a dnf.conf with reasonable defaults. This project was inspired by [vimconfig.com](https://vimconfig.com/).
 
+https://gracious-ramanujan-2e652a.netlify.app/
+
 # Setup
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
