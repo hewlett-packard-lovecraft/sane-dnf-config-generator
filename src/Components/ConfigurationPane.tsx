@@ -1,7 +1,7 @@
-import { Tabs, Tab } from "react-bootstrap";
 
+import { Tabs, Tab, Form } from "react-bootstrap";
 import Option from "../Types/IOption";
-import ConfigurationForm from "./ConfigurationForm";
+import ConfigurationOption from "./ConfigurationOption";
 
 interface IProps {
   options: Option[];
@@ -10,15 +10,31 @@ interface IProps {
 }
 
 const ConfigurationPane = (props: IProps) => {
+    let options = props.options.map((option: Option, index: number) => (
+      <ConfigurationOption
+        option={option}
+        index={index}
+        handleInputChange={props.handleInputChange}
+        handleCheckboxChange={props.handleCheckboxChange}
+        key={`configuration-${option.name}`}
+      />
+    ));
+
   return (
     <div className="configuration-pane">
-      <Tabs variant="tabs">
+      <Tabs 
+        variant="tabs"
+        transition={false}
+      >
         <Tab eventKey="home" title="Options">
-          <ConfigurationForm
-            options={props.options}
-            handleCheckboxChange={ props.handleCheckboxChange }
-            handleInputChange={ props.handleInputChange }
-          />
+          <>
+            Documentation:{" "}
+            <a href="https://dnf.readthedocs.io/en/latest/conf_ref.html">
+              dnf configuration reference
+            </a>{" "}
+            <br />
+            <Form>{options}</Form>
+            </>
         </Tab>
         <Tab eventKey="profile" title="About">
           <p>
